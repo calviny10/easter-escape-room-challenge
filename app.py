@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# Custom CSS for styling - UPDATED to hide "Press Enter to apply"
+# Custom CSS for styling
 st.markdown("""
 <style>
     h1 {
@@ -39,14 +39,6 @@ st.markdown("""
     div[data-baseweb="input"] input {
         text-align: center !important;
         font-size: 24px !important;
-    }
-    /* Hide "Press Enter to apply" text */
-    .stTextInput div div small {
-        display: none !important;
-    }
-    /* Reduce the extra space below inputs */
-    .stTextInput {
-        margin-bottom: -10px !important;
     }
 </style>
 """, unsafe_allow_html=True)
