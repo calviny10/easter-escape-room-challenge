@@ -44,7 +44,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # App title
-st.title("Escape Challenge")
+st.title("Easter Escape Room - Final Stage")
 
 # Create digit input boxes
 st.subheader("Enter 6-digit code:")
