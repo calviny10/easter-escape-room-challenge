@@ -40,6 +40,17 @@ st.markdown("""
         text-align: center !important;
         font-size: 24px !important;
     }
+    /* Hide the character count indicator */
+    .st-emotion-cache-1hynsf2 {
+        display: none !important;
+    }
+    .st-emotion-cache-1qg05tj {
+        display: none !important;
+    }
+    /* General attempt to hide any character count indicators */
+    small {
+        display: none !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
