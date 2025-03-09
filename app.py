@@ -40,17 +40,6 @@ st.markdown("""
         text-align: center !important;
         font-size: 24px !important;
     }
-    /* Hide the character count indicator */
-    .st-emotion-cache-1hynsf2 {
-        display: none !important;
-    }
-    .st-emotion-cache-1qg05tj {
-        display: none !important;
-    }
-    /* General attempt to hide any character count indicators */
-    small {
-        display: none !important;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -62,17 +51,17 @@ st.subheader("Enter 6-digit code:")
 
 col1, col2, col3, col4, col5, col6 = st.columns(6)
 with col1:
-    digit1 = st.text_input("", key="digit1", max_chars=1, label_visibility="collapsed")
+    digit1 = st.text_input("", key="digit1", max_chars=1, label_visibility="hidden")
 with col2:
-    digit2 = st.text_input("", key="digit2", max_chars=1, label_visibility="collapsed")
+    digit2 = st.text_input("", key="digit2", max_chars=1, label_visibility="hidden")
 with col3:
-    digit3 = st.text_input("", key="digit3", max_chars=1, label_visibility="collapsed")
+    digit3 = st.text_input("", key="digit3", max_chars=1, label_visibility="hidden")
 with col4:
-    digit4 = st.text_input("", key="digit4", max_chars=1, label_visibility="collapsed")
+    digit4 = st.text_input("", key="digit4", max_chars=1, label_visibility="hidden")
 with col5:
-    digit5 = st.text_input("", key="digit5", max_chars=1, label_visibility="collapsed")
+    digit5 = st.text_input("", key="digit5", max_chars=1, label_visibility="hidden")
 with col6:
-    digit6 = st.text_input("", key="digit6", max_chars=1, label_visibility="collapsed")
+    digit6 = st.text_input("", key="digit6", max_chars=1, label_visibility="hidden")
 
 # Submit button
 submit_button = st.button("Submit")
