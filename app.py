@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 
 # Set page configuration
 st.set_page_config(
@@ -11,12 +10,6 @@ st.set_page_config(
 # Custom CSS for styling
 st.markdown("""
 <style>
-    .main {
-        padding: 2rem;
-        border-radius: 10px;
-        max-width: 800px;
-        margin: 0 auto;
-    }
     h1 {
         color: #2196f3;
         text-align: center;
@@ -26,7 +19,6 @@ st.markdown("""
         background-color: #2196f3;
         color: white;
         width: 100%;
-        padding: 0.5rem;
     }
     .celebration {
         font-size: 32px;
@@ -38,18 +30,43 @@ st.markdown("""
         from { transform: scale(1); }
         to { transform: scale(1.2); }
     }
+    /* Make inputs look more like rectangles */
+    div[data-baseweb="input"] {
+        border: 2px solid #2196f3 !important;
+        border-radius: 4px !important;
+    }
+    /* Center text in inputs */
+    div[data-baseweb="input"] input {
+        text-align: center !important;
+        font-size: 24px !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # App title
-st.title("Easter Escape Room - Final Stage")
+st.title("Escape Challenge")
 
-# Create a form for the input
-with st.form(key="code_form"):
-    code_input = st.text_input("Enter 6-digit code:", max_chars=6)
-    submit_button = st.form_submit_button("Submit")
+# Create digit input boxes
+st.subheader("Enter 6-digit code:")
 
-# Initialize session state for attempts
+col1, col2, col3, col4, col5, col6 = st.columns(6)
+with col1:
+    digit1 = st.text_input("", key="digit1", max_chars=1, label_visibility="collapsed")
+with col2:
+    digit2 = st.text_input("", key="digit2", max_chars=1, label_visibility="collapsed")
+with col3:
+    digit3 = st.text_input("", key="digit3", max_chars=1, label_visibility="collapsed")
+with col4:
+    digit4 = st.text_input("", key="digit4", max_chars=1, label_visibility="collapsed")
+with col5:
+    digit5 = st.text_input("", key="digit5", max_chars=1, label_visibility="collapsed")
+with col6:
+    digit6 = st.text_input("", key="digit6", max_chars=1, label_visibility="collapsed")
+
+# Submit button
+submit_button = st.button("Submit")
+
+# Initialize session state
 if 'attempts' not in st.session_state:
     st.session_state.attempts = 0
 if 'success' not in st.session_state:
@@ -57,21 +74,22 @@ if 'success' not in st.session_state:
 
 # Handle form submission
 if submit_button:
+    # Combine all digits
+    entered_code = f"{digit1}{digit2}{digit3}{digit4}{digit5}{digit6}"
     # The correct code
     CORRECT_CODE = "220450"
     
     st.session_state.attempts += 1
     
-    if code_input == CORRECT_CODE:
+    if entered_code == CORRECT_CODE:
         st.session_state.success = True
-    elif len(code_input) == 6:
+    elif len(entered_code) == 6 and entered_code.isdigit():
         st.warning("Wow! You are almost there, finally, please hang the correct six digit code to escape. If it's wrong, nothing will happen.")
     else:
-        st.error("Please enter a 6-digit code.")
+        st.error("Please enter all 6 digits.")
 
 # Show celebration for correct code
 if st.session_state.success:
     st.markdown('<div class="celebration">🎉 CONGRATULATION! YOU HAVE MADE IT! 🎉</div>', unsafe_allow_html=True)
-    
     # Add confetti effect
     st.balloons()
