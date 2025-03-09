@@ -46,7 +46,7 @@ st.title("Easter Escape Room - Final Stage")
 
 # Create a form for the input
 with st.form(key="code_form"):
-    code_input = st.text_input("Enter 6-digit code:", max_chars=6)
+    code_input = st.number_input("Enter 6-digit code:", max_chars=6)
     submit_button = st.form_submit_button("Submit")
 
 # Initialize session state for attempts
