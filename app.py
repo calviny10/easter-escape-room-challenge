@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# Custom CSS for styling
+# Custom CSS for styling - UPDATED to hide "Press Enter to apply"
 st.markdown("""
 <style>
     h1 {
@@ -40,6 +40,14 @@ st.markdown("""
         text-align: center !important;
         font-size: 24px !important;
     }
+    /* Hide "Press Enter to apply" text */
+    .stTextInput div div small {
+        display: none !important;
+    }
+    /* Reduce the extra space below inputs */
+    .stTextInput {
+        margin-bottom: -10px !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -51,17 +59,17 @@ st.subheader("Enter 6-digit code:")
 
 col1, col2, col3, col4, col5, col6 = st.columns(6)
 with col1:
-    digit1 = st.text_input("", key="digit1", max_chars=1, label_visibility="hidden")
+    digit1 = st.text_input("", key="digit1", max_chars=1, label_visibility="collapsed")
 with col2:
-    digit2 = st.text_input("", key="digit2", max_chars=1, label_visibility="hidden")
+    digit2 = st.text_input("", key="digit2", max_chars=1, label_visibility="collapsed")
 with col3:
-    digit3 = st.text_input("", key="digit3", max_chars=1, label_visibility="hidden")
+    digit3 = st.text_input("", key="digit3", max_chars=1, label_visibility="collapsed")
 with col4:
-    digit4 = st.text_input("", key="digit4", max_chars=1, label_visibility="hidden")
+    digit4 = st.text_input("", key="digit4", max_chars=1, label_visibility="collapsed")
 with col5:
-    digit5 = st.text_input("", key="digit5", max_chars=1, label_visibility="hidden")
+    digit5 = st.text_input("", key="digit5", max_chars=1, label_visibility="collapsed")
 with col6:
-    digit6 = st.text_input("", key="digit6", max_chars=1, label_visibility="hidden")
+    digit6 = st.text_input("", key="digit6", max_chars=1, label_visibility="collapsed")
 
 # Submit button
 submit_button = st.button("Submit")
