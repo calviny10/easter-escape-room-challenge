@@ -42,7 +42,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # App title
-st.title("Escape Challenge")
+st.title("Easter Escape Room - Final Stage")
 
 # Create a form for the input
 with st.form(key="code_form"):
